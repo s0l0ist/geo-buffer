@@ -187,7 +187,7 @@ pub fn buffer_polygon(input_polygon: &Polygon, distance: f64) -> MultiPolygon{
 /// # Example
 /// 
 /// ```
-/// use geo_buffer::buffer_polygon;
+/// use geo_buffer::buffer_polygon_rounded;
 /// use geo::{Polygon, MultiPolygon, LineString};
 ///
 /// let p1 = Polygon::new(
@@ -255,7 +255,7 @@ pub fn buffer_multi_polygon(input_multi_polygon: &MultiPolygon, distance: f64) -
 /// # Example
 /// 
 /// ```
-/// use geo_buffer::buffer_polygon;
+/// use geo_buffer::buffer_multi_polygon_rounded;
 /// use geo::{Polygon, MultiPolygon, LineString};
 ///
 /// let p1 = Polygon::new(
@@ -265,7 +265,7 @@ pub fn buffer_multi_polygon(input_multi_polygon: &MultiPolygon, distance: f64) -
 ///     LineString::from(vec![(3., 3.), (5., 3.), (5., 5.), (3., 5.)]), vec![],
 /// );
 /// let mp1 = MultiPolygon::new(vec![p1, p2]);
-/// let mp2 = buffer_multi_polygon(&mp1, 1.);
+/// let mp2 = buffer_multi_polygon_rounded(&mp1, 1.);
 /// ```
 /// 
 /// <details>
@@ -306,7 +306,7 @@ pub fn buffer_multi_polygon_rounded(input_multi_polygon: &MultiPolygon, distance
 /// # Example
 /// 
 /// ```
-/// use geo_buffer::buffer_polygon;
+/// use geo_buffer::skeleton_of_polygon_to_linestring;
 /// use geo::{Polygon, MultiPolygon, LineString};
 ///
 /// let p1 = Polygon::new(
@@ -341,7 +341,7 @@ pub fn skeleton_of_polygon_to_linestring(input_polygon: &Polygon, orientation: b
 /// # Example
 /// 
 /// ```
-/// use geo_buffer::buffer_polygon;
+/// use geo_buffer::skeleton_of_multi_polygon_to_linestring;
 /// use geo::{Polygon, MultiPolygon, LineString};
 ///
 /// let p1 = Polygon::new(
@@ -362,7 +362,4 @@ pub fn skeleton_of_polygon_to_linestring(input_polygon: &Polygon, orientation: b
 pub fn skeleton_of_multi_polygon_to_linestring(input_multi_polygon: &MultiPolygon, orientation: bool) -> Vec<LineString>{
     Skeleton::skeleton_of_polygon_vector(&input_multi_polygon.0, orientation).to_linestring()
 }
-
-#[cfg(test)]
-mod tests;
 

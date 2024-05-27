@@ -59,8 +59,8 @@ geo-buffer = "0.2.1"
 ## Dependencies
 ```toml
 [dependencies]
-geo-types = "0.7.9"
-geo = "0.24.1"
+geo-types = "0.7"
+geo = "0.28"
 ```
 
 ## Main Contributor
